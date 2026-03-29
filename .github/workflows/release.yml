@@ -44,9 +44,3 @@ jobs:
         uses: azure/setup-helm@v4.3.1
         with:
           version: v3.17.0
-      - name: Publish Helm Chart
-        run: |
-          ./scripts/publish-helm.sh ${{ github.ref_name }}
-        env:
-          DOCKERHUB_CHARTS_USERNAME: ${{ vars.DOCKERHUB_CHARTS_USERNAME }}
-          DOCKERHUB_CHARTS_TOKEN: ${{ secrets.DOCKERHUB_CHARTS_TOKEN }}
