@@ -1,0 +1,36 @@
+Decrypt an image locally.
+
+Use '--key' to specify the private keys.
+Private keys in PEM format may be encrypted and the password may be passed
+along in any of the following formats:
+- <filename>:<password>
+- <filename>:pass=<password>
+- <filename>:fd=<file descriptor> (not available for rootless mode)
+- <filename>:filename=<password file>
+
+Use '--platform' to define the platforms to decrypt. Defaults to the host platform.
+When '--all-platforms' is given all images in a manifest list must be available.
+Unspecified platforms are omitted from the output image.
+
+Example (encrypt):
+  openssl genrsa -out mykey.pem
+  openssl rsa -in mykey.pem -pubout -out mypubkey.pem
+  nerdctl image encrypt --recipient=jwe:mypubkey.pem --platform=linux/amd64,linux/arm64 foo example.com/foo:encrypted
+  nerdctl push example.com/foo:encrypted
+
+Example (decrypt):
+  nerdctl pull --unpack=false example.com/foo:encrypted
+  nerdctl image decrypt --key=mykey.pem example.com/foo:encrypted foo:decrypted
+
+Usage: nerdctl image decrypt [flags] <source_ref> <target_ref>...
+
+Flags:
+      --all-platforms           Convert content for all platforms
+      --dec-recipient strings   Recipient of the image; used only for PKCS7 and must be an x509 certificate
+      --gpg-homedir string      The GPG homedir to use; by default gpg uses ~/.gnupg
+      --gpg-version string      The GPG version ("v1" or "v2"), default will make an educated guess
+  -h, --help                    help for decrypt
+      --key strings             A secret key's filename and an optional password separated by colon; this option may be provided multiple times
+      --platform strings        Convert content for a specific platform
+
+See also 'nerdctl --help' for the global flags such as '--namespace', '--snapshotter', and '--cgroup-manager'.

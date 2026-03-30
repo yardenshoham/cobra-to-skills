@@ -1,0 +1,10 @@
+Print the version of cobra-to-skills
+
+Usage:
+  cobra-to-skills version [flags]
+
+Examples:
+cobra-to-skills version
+
+Flags:
+  -h, --help   help for version
