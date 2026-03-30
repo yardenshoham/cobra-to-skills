@@ -1,0 +1,30 @@
+Manage containers
+
+Usage: nerdctl container [flags]
+
+Commands:
+  commit   Create a new image from a container's changes
+  cp       Copy files/folders between a running container and the local filesystem.
+  create   Create a new container. Optionally specify "ipfs://" or "ipns://" scheme to pull image from IPFS.
+  exec     Run a command in a running container
+  inspect  Display detailed information on one or more containers.
+  kill     Kill one or more running containers
+  logs     Fetch the logs of a container. Currently, only containers created with `nerdctl run -d` are supported.
+  ls       List containers
+  pause    Pause all processes within one or more containers
+  port     List port mappings or a specific mapping for the container
+  prune    Remove all stopped containers
+  rename   rename a container
+  restart  Restart one or more running containers
+  rm       Remove one or more containers
+  run      Run a command in a new container. Optionally specify "ipfs://" or "ipns://" scheme to pull image from IPFS.
+  start    Start one or more running containers
+  stop     Stop one or more running containers
+  unpause  Unpause all processes within one or more containers
+  update   Update one or more running containers
+  wait     Block until one or more containers stop, then print their exit codes.
+
+Flags:
+  -h, --help   help for container
+
+See also 'nerdctl --help' for the global flags such as '--namespace', '--snapshotter', and '--cgroup-manager'.

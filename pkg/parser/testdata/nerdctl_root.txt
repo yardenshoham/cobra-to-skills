@@ -1,0 +1,81 @@
+nerdctl is a command line interface for containerd
+
+Config file ($NERDCTL_TOML): /home/yarden/.config/nerdctl/nerdctl.toml
+
+Usage: nerdctl [flags]
+
+Management commands:
+  apparmor   Manage AppArmor profiles
+  builder    Manage builds
+  container  Manage containers
+  image      Manage images
+  ipfs       Distributing images on IPFS
+  namespace  Manage containerd namespaces
+  network    Manage networks
+  system     Manage containerd
+  volume     Manage volumes
+
+Commands:
+  build       Build an image from a Dockerfile. Needs buildkitd to be running.
+  commit      Create a new image from a container's changes
+  completion  Generate the autocompletion script for the specified shell
+  compose     Compose
+  cp          Copy files/folders between a running container and the local filesystem.
+  create      Create a new container. Optionally specify "ipfs://" or "ipns://" scheme to pull image from IPFS.
+  events      Get real time events from the server
+  exec        Run a command in a running container
+  help        Help about any command
+  history     Show the history of an image
+  images      List images
+  info        Display system-wide information
+  inspect     Return low-level information on objects.
+  internal    DO NOT EXECUTE MANUALLY
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  login       Log in to a container registry
+  logout      Log out from a container registry
+  logs        Fetch the logs of a container. Currently, only containers created with `nerdctl run -d` are supported.
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  ps          List containers
+  pull        Pull an image from a registry. Optionally specify "ipfs://" or "ipns://" scheme to pull image from IPFS.
+  push        Push an image or a repository to a registry. Optionally specify "ipfs://" or "ipns://" scheme to push image to IPFS.
+  rename      rename a container
+  restart     Restart one or more running containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  run         Run a command in a new container. Optionally specify "ipfs://" or "ipns://" scheme to pull image from IPFS.
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more running containers
+  stats       Display a live stream of container(s) resource usage statistics.
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update one or more running containers
+  version     Show the nerdctl version information
+  wait        Block until one or more containers stop, then print their exit codes.
+
+Flags:
+  -H, --H string                 Alias of --address (default "/run/containerd/containerd.sock")
+  -a, --a string                 Alias of --address (default "/run/containerd/containerd.sock")
+      --address string           containerd address, optionally with "unix://" prefix [$CONTAINERD_ADDRESS] (default "/run/containerd/containerd.sock")
+      --cgroup-manager string    Cgroup manager to use ("cgroupfs"|"systemd") (default "none")
+      --cni-netconfpath string   cni config directory [$NETCONFPATH] (default "/home/yarden/.config/cni/net.d")
+      --cni-path string          cni plugins binary directory [$CNI_PATH] (default "/opt/cni/bin")
+      --data-root string         Root directory of persistent nerdctl state (managed by nerdctl, not by containerd) (default "/home/yarden/.local/share/nerdctl")
+      --debug                    debug mode
+      --debug-full               debug mode (with full output)
+      --experimental             Control experimental: https://github.com/containerd/nerdctl/blob/master/docs/experimental.md [$NERDCTL_EXPERIMENTAL] (default true)
+  -h, --help                     help for nerdctl
+      --host string              Alias of --address (default "/run/containerd/containerd.sock")
+      --hosts-dir strings        A directory that contains <HOST:PORT>/hosts.toml (containerd style) or <HOST:PORT>/{ca.cert, cert.pem, key.pem} (docker style) (default [/home/yarden/.config/containerd/certs.d,/home/yarden/.config/docker/certs.d])
+      --insecure-registry        skips verifying HTTPS certs, and allows falling back to plain HTTP
+  -n, --n string                 Alias of --namespace (default "default")
+      --namespace string         containerd namespace, such as "moby" for Docker, "k8s.io" for Kubernetes [$CONTAINERD_NAMESPACE] (default "default")
+      --snapshotter string       containerd snapshotter [$CONTAINERD_SNAPSHOTTER] (default "overlayfs")
+      --storage-driver string    Alias of --snapshotter (default "overlayfs")
+  -v, --version                  version for nerdctl
+
+Run 'nerdctl COMMAND --help' for more information on a command.
+
