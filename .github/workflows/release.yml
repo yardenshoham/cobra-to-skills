@@ -40,7 +40,3 @@ jobs:
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Setup Helm
-        uses: azure/setup-helm@v4.3.1
-        with:
-          version: v3.17.0
